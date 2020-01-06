@@ -1,0 +1,37 @@
+user : admin
+email : vinoroy70@gmail.com
+pass: Amelie1234
+
+
+
+https://matthiasomisore.com/web-programming/display-image-in-a-django-template-using-imagefield/
+
+
+
+
+Logis 2001 est une entreprise familiale qui offre un service de location de logements et chalets depuis 1967.Logis 2001 offre son service de location a Sherbrooke dans les quartiers Nord,quartier Est et Rock Forest, a Magog,au lac Memphremagog et a Orford Cheribourg. Pour tous ceux qui cherchent un service de location de premiere qualite,notre entreprise est la reference que vous recherchez,nous offrons en location des logements de 1 1/2 a 6 1/2 et des chalets meubles de 6 1/2 a 8 1/2 dans des secteurs tranquilles et securitaires
+
+
+
+
+
+
+
+
+
+1-Logis 2001 est une entreprise familiale qui offre un service de location de logements
+et chalets depuis 1967.Logis 2001 offre son service de location a Sherbrooke
+dans les quartiers Nord,quartier Est et Rock Forest, a Magog,au lac Memphremagog
+et a Orford Cheribourg.
+Pour tous ceux qui cherchent un service de location de premiere qualite,notre entreprise est la reference que vous recherchez,nous offrons en location des logements de 1 1/2
+a 6 1/2 et des chalets meubles de 6 1/2 a 8 1/2 dans des secteurs tranquilles et securitaires
+
+2-fiche Web,en plus de la mission sur la premiere page,il faut voir liste des secteurs
+et la fenetre selection comme le fait Gestion Immobiliere Pierre Bertand et ajouter un secteur "Chalets".
+
+3-prevoir un endroit "Promotion" en 1ere page.
+
+4-serait-il interessant d'avoir une selection de grandeur qui afficherait les disponibilites
+de cette grandeur dans tous les secteurs.
+
+5- A suivre.....

@@ -1,0 +1,43 @@
+{% extends "baseindex.html" %}
+
+{% block content %}
+
+
+<div class="container">
+
+    <div class="row">
+        <div class="col-sm-12">
+        <h2>Appartements</h2>
+        </div>
+    </div>
+
+  <table class="table table-hover">
+    <thead>
+      <tr>
+        <th>Photos</th>
+        <th>Propriété</th>
+        <th>Numéro</th>
+        <th>Grandeur</th>
+        <th>Status</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+        {% for item in aptList %}
+            <td><img src="{{ item.image1.url }}" alt="{{ item.image1 }}"  width="40" height="40"></td>
+            <td>{{ item.property }}</td>
+            <td>{{ item.aptNumber }}</td>
+            <td>{{ item.size }}</td>
+            <td>{{ item.status }}</td>
+            <td>{{ item.description }}</td>
+            <td><a href="{% url 'detail' item.id %}">Détail</a></td>
+
+            </tr>
+        {% endfor %}
+    </tbody>
+  </table>
+
+
+</div>
+
+{% endblock content %}
