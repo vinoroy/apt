@@ -24,6 +24,7 @@ class Sector(models.Model):
 
 class Property(models.Model):
 
+
     name = models.CharField(max_length=30)
     description = models.CharField(max_length=100, default='', null=True, blank=True)
     numberApts = models.CharField(max_length=100, default='', null=True, blank=True)
@@ -54,6 +55,18 @@ class Status(models.Model):
         return self.status
 
 
+class TypeService(models.Model):
+
+    serviceName = models.CharField(max_length=20)
+    type1 = models.CharField(max_length=40,default='',null=True,blank=True)
+    type2 = models.CharField(max_length=40,default='',null=True,blank=True)
+    type3 = models.CharField(max_length=40,default='',null=True,blank=True)
+    type4 = models.CharField(max_length=40,default='',null=True,blank=True)
+
+
+    def __str__(self):
+        return self.serviceName
+
 
 
 class Apartment(models.Model):
@@ -77,8 +90,10 @@ class Apartment(models.Model):
     size = models.ForeignKey(Size, on_delete=models.SET_NULL, null=True)
     status = models.ForeignKey(Status, on_delete=models.SET_NULL, null=True)
 
-    #size = models.CharField(max_length=3, choices=sizeChoices, default='1')
+    sizes = models.CharField(max_length=3, choices=sizeChoices, default='1')
     #status = models.CharField(max_length=10,choices=statusChoices,default='D')
+
+    serviceName = models.ForeignKey(TypeService, on_delete=models.SET_NULL, null=True)
 
     description = models.CharField(max_length=100,default='',null=True,blank=True)
     image1 = models.ImageField(upload_to='images/', default='',null=True,blank=True)

@@ -14,11 +14,6 @@ Logis 2001 est une entreprise familiale qui offre un service de location de loge
 
 
 
-
-
-
-
-
 1-Logis 2001 est une entreprise familiale qui offre un service de location de logements
 et chalets depuis 1967.Logis 2001 offre son service de location a Sherbrooke
 dans les quartiers Nord,quartier Est et Rock Forest, a Magog,au lac Memphremagog
@@ -35,3 +30,14 @@ et la fenetre selection comme le fait Gestion Immobiliere Pierre Bertand et ajou
 de cette grandeur dans tous les secteurs.
 
 5- A suivre.....
+
+
+pythonanywhere info :
+
+vinoroy70@gmail.com
+MillerBeer12
+
+/home/vinoroy70/apt
+apt_site
+myenv
+vinoroy70.pythonanywhere.com

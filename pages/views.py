@@ -1,15 +1,56 @@
 from django.shortcuts import render
 from django.http import HttpResponse
 
-from . models import Apartment, Property, Page
+from . models import Apartment, Property, Page,Size ,Sector
+
+from .forms import SizeForm, SectorForm
 
 def index(request):
     #return HttpResponse("<h1>Bienvenue chez Logi 2001</h1>")
 
+    task = None
+    submitted = False
+
     aptList = Apartment.objects.all()
     propList = Property.objects.all()
 
-    context = {'aptList': aptList, 'propList': propList}
+    sizes = Size.objects.all()
+    sectors = Sector.objects.all()
+
+    # aptFilter = Apartment.objects.filter(size__size='3.5')
+
+
+    aptFilter = []
+
+
+
+
+    if request.method == 'POST':
+
+        print('post received')
+
+        p = request.POST
+
+        print(p)
+
+        print(p.getlist('sizeSel'))
+
+        selList = p.getlist('sizeSel')
+
+
+        aptFilter = Apartment.objects.filter(size__size__in=selList)
+
+
+
+
+    else:
+
+        pass
+
+    context = {'aptFilter': aptFilter, 'propList': propList, 'sizes': sizes, 'sectors': sectors, 'submitted': submitted}
+
+
+
 
     return render(request, "pages/index.html",context)
 
