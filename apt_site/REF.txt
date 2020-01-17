@@ -37,7 +37,50 @@ pythonanywhere info :
 vinoroy70@gmail.com
 MillerBeer12
 
-/home/vinoroy70/apt
-apt_site
-myenv
-vinoroy70.pythonanywhere.com
+
+
+
+source code : /home/vinoroy70/apt
+working dir : /home/vinoroy70/apt
+env name : myenv
+env path : /home/vinoroy70/.virtualenvs/myenv
+www : vinoroy70.pythonanywhere.com
+divers : apt_site
+
+
+wsgi file :
+
+# +++++++++++ DJANGO +++++++++++
+# To use your own django app use code like this:
+import os
+import sys
+#
+## assuming your django settings file is at '/home/vinoroy70/mysite/mysite/settings.py'
+## and your manage.py is is at '/home/vinoroy70/mysite/manage.py'
+path = '/home/vinoroy70/apt'
+if path not in sys.path:
+    sys.path.append(path)
+
+os.environ['DJANGO_SETTINGS_MODULE'] = 'apt_site.settings'
+#
+## then:
+from django.core.wsgi import get_wsgi_application
+application = get_wsgi_application()
+
+
+settings.py file:
+
+
+STATIC_URL = '/static/'
+
+STATICFILES_DIRS = [
+os.path.join(BASE_DIR, 'apt_site/static'),]
+
+
+
+# insta_project/settings.py
+MEDIA_URL = '/media/'
+MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
+
+
+

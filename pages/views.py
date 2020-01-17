@@ -11,18 +11,17 @@ def index(request):
     task = None
     submitted = False
 
+    tabs = Page.objects.all()
+
+
     aptList = Apartment.objects.all()
     propList = Property.objects.all()
 
     sizes = Size.objects.all()
     sectors = Sector.objects.all()
 
-    # aptFilter = Apartment.objects.filter(size__size='3.5')
-
 
     aptFilter = []
-
-
 
 
     if request.method == 'POST':
@@ -35,11 +34,22 @@ def index(request):
 
         print(p.getlist('sizeSel'))
 
-        selList = p.getlist('sizeSel')
+        sizeList = p.getlist('sizeSel')
+
+        sectorList = p.getlist('sectorSel')
 
 
-        aptFilter = Apartment.objects.filter(size__size__in=selList)
+        if not sizeList:
+            aptFilter = Apartment.objects.filter(property__sector__sector__in=sectorList)
 
+        elif not sectorList:
+            aptFilter = Apartment.objects.filter(size__size__in=sizeList)
+
+        else:
+            aptFilter = Apartment.objects.filter(size__size__in=sizeList).filter(property__sector__sector__in=sectorList)
+
+
+        submitted = True
 
 
 
@@ -47,9 +57,8 @@ def index(request):
 
         pass
 
-    context = {'aptFilter': aptFilter, 'propList': propList, 'sizes': sizes, 'sectors': sectors, 'submitted': submitted}
 
-
+    context = {'tabs': tabs, 'aptFilter': aptFilter, 'propList': propList, 'sizes': sizes, 'sectors': sectors, 'submitted': submitted}
 
 
     return render(request, "pages/index.html",context)
