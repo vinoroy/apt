@@ -32,6 +32,10 @@ de cette grandeur dans tous les secteurs.
 5- A suivre.....
 
 
+gmail logis2001info@gmail.com
+pass: MillerBeer12
+
+
 pythonanywhere info :
 
 vinoroy70@gmail.com
@@ -71,6 +75,9 @@ application = get_wsgi_application()
 settings.py file:
 
 
+ALLOWED_HOSTS = ['vinoroy70.pythonanywhere.com']
+
+
 STATIC_URL = '/static/'
 
 STATICFILES_DIRS = [
@@ -82,5 +89,73 @@ os.path.join(BASE_DIR, 'apt_site/static'),]
 MEDIA_URL = '/media/'
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 
+
+
+
+####  process notes ####
+
+https://help.pythonanywhere.com/pages/DeployExistingDjangoProject/
+
+
+1) delete the apt directory
+
+2) delete the web app
+
+3) git clone https://github.com/vinoroy/apt.git
+
+4) create a new web app manual configuration
+
+5) set the following
+
+    source code : /home/vinoroy70/apt
+    working dir : /home/vinoroy70/apt
+
+6) copy the following wsgi file
+
+# +++++++++++ DJANGO +++++++++++
+# To use your own django app use code like this:
+import os
+import sys
+#
+## assuming your django settings file is at '/home/vinoroy70/mysite/mysite/settings.py'
+## and your manage.py is is at '/home/vinoroy70/mysite/manage.py'
+path = '/home/vinoroy70/apt'
+if path not in sys.path:
+    sys.path.append(path)
+
+os.environ['DJANGO_SETTINGS_MODULE'] = 'apt_site.settings'
+#
+## then:
+from django.core.wsgi import get_wsgi_application
+application = get_wsgi_application()
+
+
+7) enter path to virtual env
+
+/home/vinoroy70/.virtualenvs/myenv
+
+8) start the virtualenv
+
+cd .virtualenvs
+source myenv/bin/activate
+
+9) make the database migration
+
+cd /apt
+./manage.py migrate
+
+10) change the setting.py file
+
+ALLOWED_HOSTS = ['vinoroy70.pythonanywhere.com']
+
+
+STATIC_URL = '/static/'
+
+STATICFILES_DIRS = [
+os.path.join(BASE_DIR, 'apt_site/static'),]
+
+# insta_project/settings.py
+MEDIA_URL = '/media/'
+MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 
 

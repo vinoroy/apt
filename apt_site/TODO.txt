@@ -1,0 +1,14 @@
+ App
+ ----
+
+ + ajustement verticale de l'image recherche
+ + courriel fonctionnel
+ - trouvez uniquement if query
+ - code cleanup and documentation
+
+ Data
+ ----
+
+ - ajustement de la taille des images de Vimy et HautBois
+ - ajout de Haut Bois
+

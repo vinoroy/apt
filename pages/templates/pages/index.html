@@ -163,7 +163,7 @@
                     <div class="col-sm-2"></div>
                     <div class="col-sm-2">
 
-                        <input type="submit" class="btn btn-dark" value="TROUVEZ">
+                        <input type="submit" class="btn btn-dark" name="SEARCH" value="TROUVEZ">
 
                     </div>
                     <div class="col-sm-2"></div>
@@ -176,11 +176,6 @@
 
             </form>
 
-
-
-
-
-
     <br>
     <br>
     <br>
@@ -188,7 +183,7 @@
 
     </div>
 
-    {% if submitted %}
+    {% if submitted == 'Queries' %}
 
 
             <div id="resultats" class="container-fluid">
@@ -293,8 +288,6 @@
                         </a>
                       </div>
 
-
-
                     </div>
 
 
@@ -369,39 +362,34 @@
 
 
  <div id="contact" class="container-fluid bg-grey">
-  <h2 class="text-center">CONTACT</h2>
-  <div class="row">
-    <div class="col-sm-5">
-      <p>Contacter nous aux coordonnées suivantes</p>
-      <p><span class="glyphicon glyphicon-map-marker"></span> Sherbrooke, PQ</p>
-      <p><span class="glyphicon glyphicon-phone"></span> (819) 829 5644</p>
-      <p><span class="glyphicon glyphicon-envelope"></span> vinoroy70@gmail.com</p>
-    </div>
-    <div class="col-sm-7">
-      <div class="row">
-        <div class="col-sm-6 form-group">
-          <input class="form-control" id="name" name="name" placeholder="Name" type="text" required>
-        </div>
-        <div class="col-sm-6 form-group">
-          <input class="form-control" id="email" name="email" placeholder="Email" type="email" required>
-        </div>
-      </div>
-      <textarea class="form-control" id="comments" name="comments" placeholder="Comment" rows="5"></textarea><br>
-      <div class="row">
-        <div class="col-sm-12 form-group">
-          <button class="btn btn-default pull-right" type="submit">Send</button>
-        </div>
-      </div>
-    </div>
-  </div>
+    <form action= "" method= "POST">{% csrf_token %}
+          <h2 class="text-center">CONTACT</h2>
+          <div class="row">
+            <div class="col-sm-5">
+              <p>Contacter nous aux coordonnées suivantes</p>
+              <p><span class="glyphicon glyphicon-map-marker"></span> Sherbrooke, PQ</p>
+              <p><span class="glyphicon glyphicon-phone"></span> (819) 829 5644</p>
+              <p><span class="glyphicon glyphicon-envelope"></span> logis2001info@gmail.com</p>
+            </div>
+            <div class="col-sm-7">
+              <div class="row">
+                <div class="col-sm-6 form-group">
+                  <input class="form-control" id="name" name="name" placeholder="Name" type="text" required>
+                </div>
+                <div class="col-sm-6 form-group">
+                  <input class="form-control" id="email" name="email" placeholder="Email" type="email" required>
+                </div>
+              </div>
+              <textarea class="form-control" id="comments" name="comments" placeholder="Comment" rows="5"></textarea><br>
+              <div class="row">
+                <div class="col-sm-12 form-group">
+                  <button class="btn btn-default pull-right" type="submit" name="MESSAGE">Send</button>
+                </div>
+              </div>
+            </div>
+          </div>
+    </form>
 </div>
-
-
-
-
-
-
-
 
 
 
