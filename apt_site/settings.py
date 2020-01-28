@@ -26,6 +26,7 @@ SECRET_KEY = 'u)cfj5q)3#^npd@09-&n*%+1oih&fzw6ef!k=^02+9$+6%z9+^'
 DEBUG = True
 
 ALLOWED_HOSTS = []
+#ALLOWED_HOSTS = ['vinoroy70.pythonanywhere.com']
 
 
 # Application definition
@@ -137,3 +138,5 @@ EMAIL_USE_TLS = True
 EMAIL_PORT = 587
 EMAIL_HOST_USER = 'logis2001info@gmail.com'
 EMAIL_HOST_PASSWORD = 'MillerBeer12'
+
+

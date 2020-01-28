@@ -1,6 +1,6 @@
 from django.contrib import admin
 
-from .models import Page, Property, Apartment, Size, Status, Sector, TypeService
+from .models import Page, Property, Apartment, Size, Status, Sector, Services
 
 
 
@@ -41,9 +41,9 @@ class AptAdmin(admin.ModelAdmin):
 
 
 class ServiceAdmin(admin.ModelAdmin):
-    list_display = ('serviceName','type1','type2','type3','type4',)
-    ordering = ('serviceName',)
-    search_fields = ('serviceName',)
+    list_display = ('services',)
+    ordering = ('services',)
+    search_fields = ('services',)
 
 
 admin.site.register(Page, PageAdmin)
@@ -52,4 +52,4 @@ admin.site.register(Apartment, AptAdmin)
 admin.site.register(Size, SizeAdmin)
 admin.site.register(Status, StatusAdmin)
 admin.site.register(Sector, SectorAdmin)
-admin.site.register(TypeService, ServiceAdmin)
+admin.site.register(Services, ServiceAdmin)

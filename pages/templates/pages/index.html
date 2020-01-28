@@ -14,7 +14,7 @@
         <span class="icon-bar"></span>
         <span class="icon-bar"></span>
       </button>
-      <a class="navbar-brand" href="#myPage">LOGI 2001</a>
+      <a class="navbar-brand" href="#myPage">LOGIS 2001</a>
     </div>
     <div class="collapse navbar-collapse" id="myNavbar">
       <ul class="nav navbar-nav navbar-right">
@@ -36,7 +36,7 @@
 
 
 <div class="jumbotron text-center">
-  <h1>LOGI 2001</h1>
+  <h1>LOGIS 2001</h1>
   <p>Les proprios à votre service</p>
 </div>
 
@@ -192,13 +192,12 @@
 
             {% for item in aptFilter %}
 
-                <div class="row">
+                <div class="row p-3 mb-2 bg-dark text-white">
 
                     <div class="col-sm-4">
 
 
-
-                        <div id="{{ item.aptNumber }}" class="carousel slide" data-ride="carousel" data-interval="false">
+                        <div id="{{ item.id }}" class="carousel slide" data-ride="carousel" data-interval="false">
                         <!-- Indicators -->
                         <ol class="carousel-indicators">
                             <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
@@ -214,7 +213,7 @@
 
                             {% if item.image1 != '' %}
                                 <div class="item active">
-                                    <img src="{{ item.image1.url }}" alt="Aaa" style="width:300px;height:200px;">
+                                    <img src="{{ item.image1.url }}" alt="Aaa" style="width:100%;height:300px;">
                                     <div class="carousel-caption">
                                         <h3>{{ item.image1Text }}</h3>
                                         <p></p>
@@ -224,7 +223,7 @@
 
                             {% if item.image2 != '' %}
                                 <div class="item" style="max-width:900px; max-height:600px !important;">
-                                    <img src="{{ item.image2.url }}" alt="Aaa" style="width:300px;height:200px;">
+                                    <img src="{{ item.image2.url }}" alt="Aaa" style="width:100%;height:300px;">
                                     <div class="carousel-caption">
                                         <h3>{{ item.image2Text }}</h3>
                                         <p></p>
@@ -234,7 +233,7 @@
 
                             {% if item.image3 != '' %}
                                 <div class="item" style="max-width:900px; max-height:600px !important;">
-                                    <img src="{{ item.image3.url }}" alt="Aaa" style="width:300px;height:200px;">
+                                    <img src="{{ item.image3.url }}" alt="Aaa" style="width:100%;height:300px;">
                                     <div class="carousel-caption">
                                         <h3>{{ item.image3Text }}</h3>
                                         <p></p>
@@ -244,7 +243,7 @@
 
                             {% if item.image4 != '' %}
                                 <div class="item" style="max-width:900px; max-height:600px !important;">
-                                    <img src="{{ item.image4.url }}" alt="Aaa" style="width:300px;height:200px;">
+                                    <img src="{{ item.image4.url }}" alt="Aaa" style="width:100%;height:300px;">
                                     <div class="carousel-caption">
                                         <h3>{{ item.image4Text }}</h3>
                                         <p></p>
@@ -255,7 +254,7 @@
 
                             {% if item.image5 != '' %}
                                 <div class="item" style="max-width:900px; max-height:600px !important;">
-                                    <img src="{{ item.image5.url }}" alt="Aaa" style="width:300px;height:200px;">
+                                    <img src="{{ item.image5.url }}" alt="Aaa" style="width:100%;height:300px;">
                                     <div class="carousel-caption">
                                         <h3>{{ item.image5Text }}</h3>
                                         <p></p>
@@ -266,7 +265,7 @@
 
                             {% if item.image6 != '' %}
                                 <div class="item" style="max-width:900px; max-height:600px !important;">
-                                    <img src="{{ item.image6.url }}" alt="Aaa" style="width:300px;height:200px;">
+                                    <img src="{{ item.image6.url }}" alt="Aaa" style="width:100%;height:300px;">
                                     <div class="carousel-caption">
                                         <h3>{{ item.image6Text }}</h3>
                                         <p></p>
@@ -278,11 +277,11 @@
                         </div>
 
                         <!-- Left and right controls -->
-                        <a class="left carousel-control" href="#{{ item.aptNumber }}" data-slide="prev">
+                        <a class="left carousel-control" href="#{{ item.id }}" data-slide="prev">
                           <span class="glyphicon glyphicon-chevron-left"></span>
                           <span class="sr-only">Previous</span>
                         </a>
-                        <a class="right carousel-control" href="#{{ item.aptNumber }}" data-slide="next">
+                        <a class="right carousel-control" href="#{{ item.id }}" data-slide="next">
                           <span class="glyphicon glyphicon-chevron-right"></span>
                           <span class="sr-only">Next</span>
                         </a>
@@ -303,8 +302,8 @@
                             </thead>
                             <tbody>
                                 <tr>
-                                    <td class="col-md-6">Propriété</td>
-                                    <td class="col-md-6">{{ item.property }}</td>
+                                    <td class="col-md-6">Adresse de l'immeuble</td>
+                                    <td class="col-md-6">{{ item.property.address }}</td>
                                 </tr>
                                 <tr>
                                     <td class="col-md-6">Secteur</td>
@@ -319,19 +318,38 @@
                                     <td class="col-md-6">{{ item.description }}</td>
                                 </tr>
                                 <tr>
-                                    <td class="col-md-6">Services</td>
+                                    <td class="col-md-6">Services inclus</td>
                                     <td class="col-md-6">
-                                        {{ item.serviceName.type1 }}<br>
-                                        {{ item.serviceName.type2 }}<br>
-                                        {{ item.serviceName.type3 }}<br>
-                                        {{ item.serviceName.type4 }}<br>
+                                        {{ item.services.services }}<br>
+
                                     </td>
                                 </tr>
                             </tbody>
                         </table>
                     </div>
 
-                    <div class="col-sm-4"></div>
+
+                    <div class="col-sm-4">
+
+                        <table class="table table-hover">
+                            <thead>
+                              <tr>
+                                  <td class="col-md-6">Description de l'immeuble</td>
+                              </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+
+                                    <td class="col-md-6">{{ item.property.description }}</td>
+
+                                </tr>
+
+                            </tbody>
+                        </table>
+                    </div>
+
+
+
 
                 </div>
 
@@ -340,23 +358,18 @@
         </div>
 
 
+    {% else %}
+
+
+        <div id="resultats" class="container-fluid">
+
+            <h2>Aucun logements correspondents à vos critères</h2>
+
+        </div>
+
 
 
     {% endif %}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 

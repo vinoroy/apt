@@ -3,7 +3,7 @@ from django.http import HttpResponse
 
 from . models import Apartment, Property, Page,Size ,Sector
 
-from .forms import SizeForm, SectorForm
+
 
 from django.core.mail import send_mail
 from django.conf import settings

@@ -1,6 +1,19 @@
+
+python manage.py shell
+
+python manage.py runserver
+
+python manage.py makemigrations pages
+
+python manage.py migrate
+
+
+
 user : admin
 email : vinoroy70@gmail.com
 pass: Amelie1234
+
+
 
 
 

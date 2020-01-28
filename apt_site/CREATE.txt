@@ -1,0 +1,15 @@
+1) create a project directory
+
+mkdir xxxProjecy
+
+2) create the project
+
+django-admin startproject yyySite
+
+3) create the database
+
+cd yyySite
+
+python manage.py migrate
+
+4)

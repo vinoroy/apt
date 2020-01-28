@@ -5,10 +5,12 @@
  + courriel fonctionnel
  - trouvez uniquement if query
  - code cleanup and documentation
+ - auto scroll sur résultats de la recherche
+ - LOGIS
 
  Data
  ----
 
- - ajustement de la taille des images de Vimy et HautBois
- - ajout de Haut Bois
-
+ + ajustement de la taille des images de Vimy et HautBois
+ + ajout de Haut Bois
+ - ajout description Victoria
