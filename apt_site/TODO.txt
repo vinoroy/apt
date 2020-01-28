@@ -1,16 +1,21 @@
  App
  ----
-
+ + filtre sur statut disponible
+ + trouvez uniquement if query
+ - code cleanup and documentation
+ - achat d'un compte payant de pythonanywhere
+ - lien sur www.logis2001.com
+ - auto scroll sur résultats de la recherche
+ + simplifier la procédure de mise à jour de l'app sur pythonanywhere
  + ajustement verticale de l'image recherche
  + courriel fonctionnel
- - trouvez uniquement if query
- - code cleanup and documentation
- - auto scroll sur résultats de la recherche
- - LOGIS
+
+ + LOGIS
 
  Data
  ----
-
+ - correction des textes
+ - procédure d'utilisation
  + ajustement de la taille des images de Vimy et HautBois
  + ajout de Haut Bois
- - ajout description Victoria
+ + ajout description Victoria

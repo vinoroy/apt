@@ -11,34 +11,36 @@ from django.conf import settings
 
 def index(request):
 
-    task = None
     submitted = ''
 
+    # query the tabs of the application
     tabs = Page.objects.all()
 
 
-    aptList = Apartment.objects.all()
+    # get the query set of all the properties
     propList = Property.objects.all()
 
+    # get the query set of all the appartment sizes and sectors to build the forms
     sizes = Size.objects.all()
     sectors = Sector.objects.all()
 
 
+    # create an empty query
     aptFilter = []
 
 
+    # if a post request was made
     if request.method == 'POST':
 
 
         # get the post request object
         p = request.POST
 
+        # if the user requested a search
         if 'SEARCH' in p:
 
             # section to print post request results for degugging
             print(p)
-            #print(p.getlist('sizeSel'))
-            #print(p.get('name'))
 
 
             # get the search values for size and sector
@@ -48,18 +50,28 @@ def index(request):
 
             # execute the query based on the search values
             if not sizeList:
-                aptFilter = Apartment.objects.filter(property__sector__sector__in=sectorList)
+
+                aptFilter = Apartment.objects.filter(property__sector__sector__in=sectorList).filter(status__status='Disponible')
 
             elif not sectorList:
-                aptFilter = Apartment.objects.filter(size__size__in=sizeList)
+
+                aptFilter = Apartment.objects.filter(size__size__in=sizeList).filter(status__status='Disponible')
 
             else:
-                aptFilter = Apartment.objects.filter(size__size__in=sizeList).filter(property__sector__sector__in=sectorList)
+
+                aptFilter = Apartment.objects.filter(size__size__in=sizeList).filter(property__sector__sector__in=sectorList).filter(status__status='Disponible')
 
             # set the submitted value
-            submitted = 'Queries'
+            if not aptFilter:
+
+                submitted = 'NoResult'
+
+            else:
+
+                submitted = 'Result'
 
 
+        # if the user requested to send a message
         elif 'MESSAGE' in p:
 
             # get the values for the contact form
@@ -77,14 +89,14 @@ def index(request):
             submitted = 'Message'
 
 
-
+    # if no post request, no special processing
     else:
 
         pass
 
 
 
-
+    # prepare the context data for the reponse
     context = {'tabs': tabs, 'aptFilter': aptFilter, 'propList': propList, 'sizes': sizes, 'sectors': sectors, 'submitted': submitted}
 
 

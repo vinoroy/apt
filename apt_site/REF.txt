@@ -1,4 +1,6 @@
 
+# django commands
+
 python manage.py shell
 
 python manage.py runserver
@@ -8,52 +10,23 @@ python manage.py makemigrations pages
 python manage.py migrate
 
 
+# django admin info
 
 user : admin
 email : vinoroy70@gmail.com
 pass: Amelie1234
 
 
-
-
-
-https://matthiasomisore.com/web-programming/display-image-in-a-django-template-using-imagefield/
-
-
-
-
-Logis 2001 est une entreprise familiale qui offre un service de location de logements et chalets depuis 1967.Logis 2001 offre son service de location a Sherbrooke dans les quartiers Nord,quartier Est et Rock Forest, a Magog,au lac Memphremagog et a Orford Cheribourg. Pour tous ceux qui cherchent un service de location de premiere qualite,notre entreprise est la reference que vous recherchez,nous offrons en location des logements de 1 1/2 a 6 1/2 et des chalets meubles de 6 1/2 a 8 1/2 dans des secteurs tranquilles et securitaires
-
-
-
-
-1-Logis 2001 est une entreprise familiale qui offre un service de location de logements
-et chalets depuis 1967.Logis 2001 offre son service de location a Sherbrooke
-dans les quartiers Nord,quartier Est et Rock Forest, a Magog,au lac Memphremagog
-et a Orford Cheribourg.
-Pour tous ceux qui cherchent un service de location de premiere qualite,notre entreprise est la reference que vous recherchez,nous offrons en location des logements de 1 1/2
-a 6 1/2 et des chalets meubles de 6 1/2 a 8 1/2 dans des secteurs tranquilles et securitaires
-
-2-fiche Web,en plus de la mission sur la premiere page,il faut voir liste des secteurs
-et la fenetre selection comme le fait Gestion Immobiliere Pierre Bertand et ajouter un secteur "Chalets".
-
-3-prevoir un endroit "Promotion" en 1ere page.
-
-4-serait-il interessant d'avoir une selection de grandeur qui afficherait les disponibilites
-de cette grandeur dans tous les secteurs.
-
-5- A suivre.....
-
+# logis2001 gmail account
 
 gmail logis2001info@gmail.com
 pass: MillerBeer12
 
 
-pythonanywhere info :
+# pythonanywhere info :
 
 vinoroy70@gmail.com
 MillerBeer12
-
 
 
 
@@ -65,50 +38,38 @@ www : vinoroy70.pythonanywhere.com
 divers : apt_site
 
 
-wsgi file :
 
-# +++++++++++ DJANGO +++++++++++
-# To use your own django app use code like this:
-import os
-import sys
-#
-## assuming your django settings file is at '/home/vinoroy70/mysite/mysite/settings.py'
-## and your manage.py is is at '/home/vinoroy70/mysite/manage.py'
-path = '/home/vinoroy70/apt'
-if path not in sys.path:
-    sys.path.append(path)
-
-os.environ['DJANGO_SETTINGS_MODULE'] = 'apt_site.settings'
-#
-## then:
-from django.core.wsgi import get_wsgi_application
-application = get_wsgi_application()
-
-
-settings.py file:
-
-
-ALLOWED_HOSTS = ['vinoroy70.pythonanywhere.com']
-
-
-STATIC_URL = '/static/'
-
-STATICFILES_DIRS = [
-os.path.join(BASE_DIR, 'apt_site/static'),]
-
-
-
-# insta_project/settings.py
-MEDIA_URL = '/media/'
-MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
-
-
-
-
-####  process notes ####
+# pythonanywhere guide for app deployment
 
 https://help.pythonanywhere.com/pages/DeployExistingDjangoProject/
 
+
+
+##### procedure to update pythonanywhere app from github #####
+
+1) delete the apt directory
+
+2) git clone https://github.com/vinoroy/apt.git
+
+3) start the virtualenv
+
+cd .virtualenvs
+source myenv/bin/activate
+
+4) make the database migration
+
+cd /apt
+./manage.py migrate
+
+5) change the setting.py file
+
+ALLOWED_HOSTS = ['vinoroy70.pythonanywhere.com']
+
+DEBUG = False
+
+
+
+##### procdure to deploy app from scratch #######
 
 1) delete the apt directory
 

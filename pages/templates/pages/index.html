@@ -115,7 +115,7 @@
 
             <br>
 
-            <h2>Trouvez un logement</h2>
+            <h2>Trouver un logement</h2>
 
             <form action= "" method= "POST">{% csrf_token %}
 
@@ -183,12 +183,12 @@
 
     </div>
 
-    {% if submitted == 'Queries' %}
+    {% if submitted == 'Result' %}
 
 
             <div id="resultats" class="container-fluid">
 
-            <h2>Logements trouvez</h2>
+            <h2>Logements trouvés</h2>
 
             {% for item in aptFilter %}
 
@@ -363,7 +363,7 @@
 
         <div id="resultats" class="container-fluid">
 
-            <h2>Aucun logements correspondents à vos critères</h2>
+            <h2>Aucun appartement ne correspond à vos critères</h2>
 
         </div>
 
